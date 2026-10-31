@@ -1,25 +1,21 @@
 package suda.com.practicajhos.model
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
-import jakarta.persistence.Table
 
+import jakarta.persistence.*
 
 @Entity
-@Table (name = "product")
-open class Product {
+@Table(name = "product")
+data class Product(
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(updatable = false)
-    open var id:Long?= null
-    open var title: String?= null
-    open var estimate:Int?= null
-    open var description:Long?= null
-    @Column(name = "estimated_time")
-    open var estimatedTime: Date?= null
-    @Column(name = "work_level")
-    open var workLevel: String?= null
-}
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Int = 0,
+
+    @Column(name = "name", length = 100)
+    val name: String = "",
+
+    @Column(name = "description", length = 100)
+    val description: String? = null,
+
+    @Column(name = "stock")
+    val stock: Int = 0
+)

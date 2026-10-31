@@ -19,7 +19,7 @@ spring:
     schemas: public
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/PracticaJhos
+    url: jdbc:postgresql://localhost:5432/ejemplo
     username: postgres
     password: 0150561991
     driver-class-name: org.postgresql.Driver

@@ -1,26 +1,22 @@
 package suda.com.practicajhos.controller
-import org.springframework.stereotype.Controller
-import org.springframework.web.bind.annotation.GetMapping
+
+import org.springframework.web.bind.annotation.*
+import suda.com.practicajhos.model.Product
 import suda.com.practicajhos.service.ProductService
 
-@Controller
+@RestController
+@RequestMapping("/product")
+class ProductController(
+    private val productService: ProductService
+) {
 
-class ProductController {
-    lateinit var productService: ProductServiceService
-
-    @GetMapping(...value= "/hola")
-    fun saludo () : String {
-        return "Hola mundo"
+    @PostMapping
+    fun crear(@RequestBody product: Product): Product {
+        return productService.crear(product)
     }
 
-    @GetMapping(...value= "/adios")
-    fun despedida () : String {
-        return "Adios mundo"
+    @GetMapping
+    fun listar(): List<Product> {
+        return productService.listar()
     }
-
-    @GetMapping(...value= "/SaludoService")
-    open fun saludoService() : String {
-        return this.productoService().saludoService()
-    }
-
 }

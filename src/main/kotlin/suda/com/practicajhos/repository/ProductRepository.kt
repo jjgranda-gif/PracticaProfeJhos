@@ -1,6 +1,11 @@
 package suda.com.practicajhos.repository
 
+import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
+import suda.com.practicajhos.model.Product
+
 @Repository
-class ProductRepository {
+interface ProductRepository : JpaRepository<Product, Int> {
+
+    fun findFirstByNameIgnoreCase(name: String): Product?
 }
